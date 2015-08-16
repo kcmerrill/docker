@@ -1,0 +1,5 @@
+buildtools:
+    image: kcmerrill/buildtools
+    build: .
+    remove: true
+    push: true

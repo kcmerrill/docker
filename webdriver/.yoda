@@ -1,0 +1,8 @@
+webdriver:
+    image: kcmerrill/webdriver
+    build: .
+    w: /wd/code
+    v:
+       - $PWD:/wd/code
+    remove: true
+    restart: no

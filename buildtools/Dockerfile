@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y fontforge ttfautohint nodejs php5 curl wget hostname npm curl
+RUN apt-get update && apt-get install -y fontforge ttfautohint nodejs php5 curl wget hostname npm curl php5-curl git
 
 RUN ln -s `which nodejs` /usr/bin/node
 
