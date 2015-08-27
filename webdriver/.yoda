@@ -6,3 +6,4 @@ webdriver:
        - $PWD:/wd/code
     remove: true
     restart: no
+    push: true

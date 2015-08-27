@@ -3,3 +3,4 @@ buildtools:
     build: .
     remove: true
     push: true
+    restart: no
