@@ -8,5 +8,7 @@ RUN a2enmod rewrite
 RUN ln -s /etc/apache2/sites-available/001-custom.conf /etc/apache2/sites-enabled/001-custom.conf
 RUN unlink /etc/apache2/sites-enabled/000-default.conf
 COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
+COPY conf/php/ /etc/php5/cli/conf.d/
+COPY conf/php/ /etc/php5/apache2/conf.d/
 EXPOSE 80
 ENTRYPOINT /usr/sbin/apache2ctl -D FOREGROUND
