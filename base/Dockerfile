@@ -1,5 +1,5 @@
-FROM ubuntu
-RUN apt-get update && apt-get install -y vim php5 php5-mongo curl php5-curl ssmtp
+FROM ubuntu:14.04
+RUN apt-get update && apt-get install -y vim php5 curl php5-curl git php5-mongo ssmtp
 RUN rm -rf /var/www
 RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
@@ -10,5 +10,6 @@ RUN unlink /etc/apache2/sites-enabled/000-default.conf
 COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY conf/php/ /etc/php5/cli/conf.d/
 COPY conf/php/ /etc/php5/apache2/conf.d/
+RUN curl -sSL https://get.docker.com/ | sh
 EXPOSE 80
 ENTRYPOINT /usr/sbin/apache2ctl -D FOREGROUND
