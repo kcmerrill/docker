@@ -11,5 +11,6 @@ COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY conf/php/ /etc/php5/cli/conf.d/
 COPY conf/php/ /etc/php5/apache2/conf.d/
 RUN curl -sSL https://get.docker.com/ | sh
+RUN a2enmod headers
 EXPOSE 80
 ENTRYPOINT /usr/sbin/apache2ctl -D FOREGROUND
