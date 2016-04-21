@@ -18,4 +18,4 @@ RUN echo "deb http://package.mapr.com/releases/v5.0.0/ubuntu/ mapr optional" >> 
 RUN echo "deb http://package.mapr.com/releases/ecosystem-5.x/ubuntu binary/" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y --force-yes mapr-hive=0.13.201604062232 && apt-get clean
 
-ENTRYPOINT whoami
+ENTRYPOINT /opt/mapr/hive/hive-0.13/bin/beeline
