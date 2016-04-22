@@ -16,7 +16,7 @@ RUN apt-get install -y oracle-java7-installer
 RUN wget -O - http://package.mapr.com/releases/pub/maprgpg.key | sudo apt-key add -
 RUN echo "deb http://package.mapr.com/releases/v5.0.0/ubuntu/ mapr optional" >> /etc/apt/sources.list
 RUN echo "deb http://package.mapr.com/releases/ecosystem-5.x/ubuntu binary/" >> /etc/apt/sources.list
-RUN apt-get update && apt-get install -y --force-yes mapr-hive=0.13.201604062232 && apt-get clean
+RUN apt-get update && apt-get install -y --force-yes mapr-hive=1.0.201603301009 && apt-get clean
 
 #ENTRYPOINT /opt/mapr/hive/hive-0.13/bin/beeline
 CMD ["/opt/mapr/hive/hive-0.13/bin/beeline"]
