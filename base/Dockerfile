@@ -1,5 +1,9 @@
-FROM ubuntu:14.04
-RUN apt-get update && apt-get install -y vim php5 curl php5-curl git php5-mongo ssmtp
+FROM ubuntu
+RUN apt-get update && apt-get install -y vim php7.0 curl php7.0-curl git ssmtp libapache2-modsecurity apache2
+RUN mv /etc/modsecurity/modsecurity.conf-recommended /etc/modsecurity/modsecurity.conf
+RUN sed -i -e 's/SecRuleEngine DetectionOnly/SecRuleEngine on/g' /etc/modsecurity/modsecurity.conf
+RUN cp /usr/share/modsecurity-crs/base_rules/* /usr/share/modsecurity-crs/activated_rules/.
+RUN cp /usr/share/modsecurity-crs/optional_rules/* /usr/share/modsecurity-crs/activated_rules/.
 RUN rm -rf /var/www
 RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
