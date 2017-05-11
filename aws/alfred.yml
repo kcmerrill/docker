@@ -1,0 +1,9 @@
+build:
+    summary: Build the container
+    command: |
+        docker build -t kcmerrill/aws .
+deploy:
+    summary: Deploy container to dockerhub
+    setup: build
+    command: |
+        docker push kcmerrill/aws

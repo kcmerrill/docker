@@ -1,0 +1,33 @@
+build:
+    summary: Build image
+    command: docker build -t {{ index .Args 0 }} {{ index .Args 1 }}
+    defaults:
+        - kcmerrill/base
+        - .
+
+stop:
+    summary: Stop container
+    command: docker kill {{ index .Args 0 }}
+
+start:
+    summary: Start container
+    command: docker start {{ index .Args 0 }}
+    defaults:
+        - ${PWD##*/}
+
+remove:
+    summary: Remove container
+    command: docker rm {{ index .Args 0 }} --volumes
+
+run:
+    summary: Run a basic container
+    command: docker run -ti -P {{ index .Args 0 }}
+
+run.daemon:
+    alias: ru.background
+    summary: Run a basic container in the background
+    command: docker run -ti -P {{ index .Args 0 }}
+
+run.cmd:
+    summary: Run a basic container with a command
+    command: docker run -ti -P {{ index .Args 0 }} {{ index .Args 1}}

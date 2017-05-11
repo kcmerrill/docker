@@ -1,0 +1,4 @@
+build:
+    summary: Build grav
+    command: |
+        docker build -t kcmerrill/grav .
