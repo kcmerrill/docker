@@ -5,6 +5,12 @@ build:
         - kcmerrill/base
         - .
 
+deploy:
+    summary: Build/Deploy Image
+    setup: build
+    command: |
+        docker push {{ index .Args 0 }}
+
 stop:
     summary: Stop container
     command: docker kill {{ index .Args 0 }}

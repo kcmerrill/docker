@@ -17,4 +17,5 @@ COPY conf/php/ /etc/php5/apache2/conf.d/
 RUN curl -sSL https://get.docker.com/ | sh
 RUN a2enmod headers
 EXPOSE 80
+WORKDIR /var/www/html
 ENTRYPOINT /usr/sbin/apache2ctl -D FOREGROUND
