@@ -1,8 +1,9 @@
 FROM ubuntu
-MAINTAINER kcmerrill@gmail.com
 
 #Giddy up
-RUN apt-get update && apt-get install -y python-pip
+RUN apt-get update && apt-get install -y \
+    libltdl-dev \
+    python-pip
 
 #Install AWS-CLI along with AWS-SHELL
 RUN pip install awscli aws-shell
